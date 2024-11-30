@@ -1,2 +1,2 @@
-# ShipBattle
-CustomTkinter
+For all:
+pip install customtkinter
