@@ -48,6 +48,7 @@ try:
     text.configure(state='disabled')
 
 finally:
+    text.configure(state='disabled')
     entry = CTk.CTkEntry(upper_frame, width=300, height=40, placeholder_text='Введите то, что хотите добавить')
     entry.grid(column=0, row=0, columnspan=2, sticky='nwe', padx=25, pady=(20, 10))
 
