@@ -40,19 +40,34 @@ bottom_frame.grid_propagate(False)
 text = CTk.CTkTextbox(bottom_frame, width=330, height=380, fg_color='gray14')
 text.grid(column=0, row=0, sticky='nsew', padx=10, pady=10)
 
-with open('neededtext.txt', 'r') as t:
-    content = t.read()
-    text.delete("0.0", "end")
-    text.insert("0.0", content)
-text.configure(state='disabled')
+try:
+    with open('neededtext.txt', 'r') as t:
+        content = t.read()
+        text.delete("0.0", "end")
+        text.insert("0.0", content)
+    text.configure(state='disabled')
 
-entry = CTk.CTkEntry(upper_frame, width=300, height=40, placeholder_text='Введите то, что хотите добавить')
-entry.grid(column=0, row=0, columnspan=2, sticky='nwe', padx=25, pady=(20, 10))
+    entry = CTk.CTkEntry(upper_frame, width=300, height=40, placeholder_text='Введите то, что хотите добавить')
+    entry.grid(column=0, row=0, columnspan=2, sticky='nwe', padx=25, pady=(20, 10))
 
-btn_add = CTk.CTkButton(upper_frame, text='Добавить', font=('Arial', 20), text_color='white', fg_color='gray', hover_color='orange3', width=150, command=add_totext)
-btn_add.grid(column=0, row=1, sticky='e', padx=(0, 10), pady=(10, 20))
+    btn_add = CTk.CTkButton(upper_frame, text='Добавить', font=('Arial', 20), text_color='white', fg_color='gray', hover_color='orange3', width=150, command=add_totext)
+    btn_add.grid(column=0, row=1, sticky='e', padx=(0, 10), pady=(10, 20))
 
-btn_clear = CTk.CTkButton(upper_frame, text='Очистить', font=('Arial', 20), text_color='white', fg_color='gray', hover_color='orange3', width=150, command=clear)
-btn_clear.grid(column=1, row=1, sticky='w', padx=(10, 0), pady=(10, 20))
+    btn_clear = CTk.CTkButton(upper_frame, text='Очистить', font=('Arial', 20), text_color='white', fg_color='gray', hover_color='orange3', width=150, command=clear)
+    btn_clear.grid(column=1, row=1, sticky='w', padx=(10, 0), pady=(10, 20))
 
-q.mainloop()
+    q.mainloop()
+
+except:
+    entry = CTk.CTkEntry(upper_frame, width=300, height=40, placeholder_text='Введите то, что хотите добавить')
+    entry.grid(column=0, row=0, columnspan=2, sticky='nwe', padx=25, pady=(20, 10))
+
+    btn_add = CTk.CTkButton(upper_frame, text='Добавить', font=('Arial', 20), text_color='white', fg_color='gray',
+                            hover_color='orange3', width=150, command=add_totext)
+    btn_add.grid(column=0, row=1, sticky='e', padx=(0, 10), pady=(10, 20))
+
+    btn_clear = CTk.CTkButton(upper_frame, text='Очистить', font=('Arial', 20), text_color='white', fg_color='gray',
+                              hover_color='orange3', width=150, command=clear)
+    btn_clear.grid(column=1, row=1, sticky='w', padx=(10, 0), pady=(10, 20))
+
+    q.mainloop()
